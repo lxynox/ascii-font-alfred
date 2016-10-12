@@ -1,0 +1,20 @@
+{
+  "name": "ascii",
+  "version": "0.0.1",
+  "description": "convert plain text to FIG font",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf node_modules",
+    "test": "mocha"
+  },
+  "keywords": [
+    "ascii",
+    "font"
+  ],
+  "author": "lxynox",
+  "license": "MIT",
+  "dependencies": {
+    "figlet": "^1.2.0",
+    "run-node": "*"
+  }
+}
