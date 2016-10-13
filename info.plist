@@ -8,13 +8,54 @@
 	<string>Entertainment</string>
 	<key>connections</key>
 	<dict>
-		<key>30ABF8AB-A8F4-4692-A346-4B311A6E09E4</key>
+		<key>1F575B98-EB47-4BFC-A871-DB97D3E9485F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>362C9A82-6936-41F9-8583-A06E7AB56386</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>30DA4A14-872F-4443-A8F5-61478EE78C23</key>
+		<array/>
+		<key>357BC13A-CF2A-4FE1-8FDD-A30CB82FB33A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1F575B98-EB47-4BFC-A871-DB97D3E9485F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>5D584FDF-3DF7-4F19-B276-CAC94949EB7A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>7B397939-1B2C-4CC7-9F25-7A3D1EE39A71</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>7B397939-1B2C-4CC7-9F25-7A3D1EE39A71</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>F8A67670-6AE8-4365-878B-BFF15500FDA2</string>
 				<key>modifiers</key>
-				<integer>0</integer>
+				<integer>1048576</integer>
 				<key>modifiersubtext</key>
 				<string></string>
 				<key>vitoclose</key>
@@ -31,11 +72,21 @@
 				<false/>
 			</dict>
 		</array>
-		<key>40386895-00B2-4150-930E-E27F4C5E39F5</key>
+		<key>D49D5678-A16F-4513-9E90-BD6910C5EC1D</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>30ABF8AB-A8F4-4692-A346-4B311A6E09E4</string>
+				<string>5D584FDF-3DF7-4F19-B276-CAC94949EB7A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>30DA4A14-872F-4443-A8F5-61478EE78C23</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -71,44 +122,136 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
+				<key>alfredfiltersresults</key>
 				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
 				<key>escaping</key>
 				<integer>102</integer>
+				<key>keyword</key>
+				<string>aff</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>wait for available fonts</string>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node index.js "{query}"</string>
+				<string>./node_modules/.bin/run-node fonts.js "{query}"
+</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
 				<string></string>
+				<key>subtext</key>
+				<string>type to filter list of fonts</string>
+				<key>title</key>
+				<string>Change Ascii Font default font</string>
 				<key>type</key>
 				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>30ABF8AB-A8F4-4692-A346-4B311A6E09E4</string>
+			<string>D49D5678-A16F-4513-9E90-BD6910C5EC1D</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
 				<key>argumenttype</key>
 				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
 				<key>keyword</key>
-				<string>ascii</string>
+				<string>af</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>query="{query}"
+
+if [ -z ${font+x} ]; then
+	if [ -f pref.txt ]; then
+		font=$(sed -e 's/font=//' pref.txt)	
+	else
+		font=NONE
+	fi
+fi
+
+./node_modules/.bin/run-node index.js "$font" "$query"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
 				<key>subtext</key>
-				<string>type in the text you want to convert</string>
-				<key>text</key>
-				<string>Convert plain text to FIG font</string>
+				<string>type in the texts to be converted</string>
+				<key>title</key>
+				<string>Convert plain texts to ascii style texts</string>
+				<key>type</key>
+				<integer>0</integer>
 				<key>withspace</key>
 				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
+			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>40386895-00B2-4150-930E-E27F4C5E39F5</string>
+			<string>7B397939-1B2C-4CC7-9F25-7A3D1EE39A71</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>variables</key>
+				<dict>
+					<key>font</key>
+					<string>{query}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>5D584FDF-3DF7-4F19-B276-CAC94949EB7A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Converted font copied to clipboard!</string>
+				<key>title</key>
+				<string>Ascii Font</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>362C9A82-6936-41F9-8583-A06E7AB56386</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -129,38 +272,104 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>seconds</key>
+				<string>1</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.delay</string>
+			<key>uid</key>
+			<string>1F575B98-EB47-4BFC-A871-DB97D3E9485F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>adduuid</key>
+				<false/>
+				<key>allowemptyfiles</key>
+				<true/>
+				<key>createintermediatefolders</key>
+				<false/>
+				<key>filename</key>
+				<string>pref.txt</string>
+				<key>filetext</key>
+				<string>font={query}</string>
+				<key>relativepathmode</key>
+				<integer>1</integer>
+				<key>type</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.writefile</string>
+			<key>uid</key>
+			<string>30DA4A14-872F-4443-A8F5-61478EE78C23</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>Alfred workflow created by [lxynox](https://github/lxynox), have fun ^_^</string>
 	<key>uidata</key>
 	<dict>
-		<key>30ABF8AB-A8F4-4692-A346-4B311A6E09E4</key>
+		<key>1F575B98-EB47-4BFC-A871-DB97D3E9485F</key>
 		<dict>
 			<key>xpos</key>
-			<integer>440</integer>
+			<integer>860</integer>
 			<key>ypos</key>
-			<integer>140</integer>
+			<integer>480</integer>
+		</dict>
+		<key>30DA4A14-872F-4443-A8F5-61478EE78C23</key>
+		<dict>
+			<key>xpos</key>
+			<integer>450</integer>
+			<key>ypos</key>
+			<integer>540</integer>
 		</dict>
 		<key>357BC13A-CF2A-4FE1-8FDD-A30CB82FB33A</key>
 		<dict>
 			<key>xpos</key>
-			<integer>680</integer>
+			<integer>710</integer>
 			<key>ypos</key>
-			<integer>220</integer>
+			<integer>450</integer>
 		</dict>
-		<key>40386895-00B2-4150-930E-E27F4C5E39F5</key>
+		<key>362C9A82-6936-41F9-8583-A06E7AB56386</key>
 		<dict>
 			<key>xpos</key>
-			<integer>230</integer>
+			<integer>940</integer>
 			<key>ypos</key>
-			<integer>140</integer>
+			<integer>450</integer>
+		</dict>
+		<key>5D584FDF-3DF7-4F19-B276-CAC94949EB7A</key>
+		<dict>
+			<key>xpos</key>
+			<integer>340</integer>
+			<key>ypos</key>
+			<integer>410</integer>
+		</dict>
+		<key>7B397939-1B2C-4CC7-9F25-7A3D1EE39A71</key>
+		<dict>
+			<key>xpos</key>
+			<integer>430</integer>
+			<key>ypos</key>
+			<integer>380</integer>
+		</dict>
+		<key>D49D5678-A16F-4513-9E90-BD6910C5EC1D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>170</integer>
+			<key>ypos</key>
+			<integer>380</integer>
 		</dict>
 		<key>F8A67670-6AE8-4365-878B-BFF15500FDA2</key>
 		<dict>
 			<key>xpos</key>
-			<integer>680</integer>
+			<integer>710</integer>
 			<key>ypos</key>
-			<integer>50</integer>
+			<integer>270</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>
