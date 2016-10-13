@@ -14,7 +14,13 @@ figlet.text(sourceText, {
   }
 
   console.log(
-    text
+    JSON.stringify({
+      items: [{
+        title: sourceText,
+        subtitle: 'Press ⌘ and hit <return> to view enlarged version',
+        arg: text
+      }]
+    })
   );
 });
 

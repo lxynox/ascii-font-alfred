@@ -53,6 +53,16 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
+				<string>96461190-10EC-470C-A7FB-E3F84402761E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>F8A67670-6AE8-4365-878B-BFF15500FDA2</string>
 				<key>modifiers</key>
 				<integer>1048576</integer>
@@ -106,6 +116,23 @@
 	<string>Ascii Font</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>'{query}', {allvars}</string>
+				<key>cleardebuggertext</key>
+				<false/>
+				<key>processoutputs</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.debug</string>
+			<key>uid</key>
+			<string>96461190-10EC-470C-A7FB-E3F84402761E</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -353,9 +380,16 @@ fi
 		<key>7B397939-1B2C-4CC7-9F25-7A3D1EE39A71</key>
 		<dict>
 			<key>xpos</key>
-			<integer>430</integer>
+			<integer>380</integer>
 			<key>ypos</key>
 			<integer>380</integer>
+		</dict>
+		<key>96461190-10EC-470C-A7FB-E3F84402761E</key>
+		<dict>
+			<key>xpos</key>
+			<integer>530</integer>
+			<key>ypos</key>
+			<integer>220</integer>
 		</dict>
 		<key>D49D5678-A16F-4513-9E90-BD6910C5EC1D</key>
 		<dict>
