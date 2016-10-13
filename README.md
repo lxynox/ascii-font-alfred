@@ -37,3 +37,5 @@ It works fine when you paste into mac OS built-in `TextEdit.app` or some 3rd par
 
 ### Thanks
 The scripts have dependency on **awesome** [patorjk/figlet.js](https://github.com/patorjk/figlet.js), check that for more detail.
+
+And unluckily ¯\_(⊙︿⊙)_/¯, **node.js** installation is a prerequisite(recommend using `$brew install node`)
